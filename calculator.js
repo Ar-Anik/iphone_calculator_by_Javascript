@@ -131,7 +131,27 @@ function eql()
             result = parseFloat(a) / parseFloat(b);
         }
 
+
+
         temp = result.toString();
+        var tt = temp;
+
+        if(temp.includes('.'))
+        {
+            result = result.toPrecision(12);
+            temp = result.toString();
+        }
+        else if((temp.includes('.') === false) && temp.length > 12)
+        {
+            var tmp = temp;
+            temp = tmp[0] + ".";
+            for(var i=1; i<=5; i++)
+            {
+                temp += tmp[i];
+            }
+            var rr = tt.length - 1;
+            temp += "e" +  rr.toString();
+        }
 
         value.textContent = temp;
     }
