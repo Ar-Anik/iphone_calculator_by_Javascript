@@ -64,11 +64,22 @@ function init(vlu)
 
 function operator(vlu)
 {
-    a = temp;
-    temp = "";
-    flag = 0;
-    opr = vlu;
-    value.textContent = "0";
+    if(temp === "" && a === "")
+    {
+        opr = vlu;
+        a = "0";
+    }
+    else if(temp === "" && a !== "")
+    {
+        opr = vlu;
+    }
+    else{
+        a = temp;
+        temp = "";
+        flag = 0;
+        opr = vlu;
+        value.textContent = "0";
+    }
 }
 
 function plusminus()
